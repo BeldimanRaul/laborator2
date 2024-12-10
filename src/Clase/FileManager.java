@@ -140,47 +140,6 @@ public class FileManager extends ManagerCursuri implements OperatiiManagerCursur
     }
 
 
-
-
-
-
-
-
-    public List<Curs> PopuleazaCurs(List<Student> studenti, List<Profesor> profesori){
-
-        List<Curs> cursuri = new ArrayList<Curs>();
-        try {
-            int contor=0;
-            Student[] studentii=new Student[studenti.size()];
-            for (int i = 0; i < studenti.size(); i++)
-                studentii[i] = studenti.get(i);
-
-            File f = new File(cursPath);
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            String line = br.readLine();
-            if (line != null) {
-                line = br.readLine();
-            }
-            while (line != null) {
-                String[] splituri = line.split(",");
-                Curs deAdaugat= new Curs(splituri[0],splituri[1]);
-                cursuri.add(deAdaugat);
-                contor++;
-                line = br.readLine();
-            }
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-
-
-
-        return cursuri;
-
-    }
-
-
-
 }
 
 
