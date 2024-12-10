@@ -138,6 +138,9 @@ public class FileManager extends ManagerCursuri implements OperatiiManagerCursur
             System.out.println(exceptie);
         }
     }
+    public void test(){
+        System.out.println("test pt github");
+    }
 
 
 }
