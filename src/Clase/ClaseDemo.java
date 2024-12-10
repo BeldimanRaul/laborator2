@@ -89,6 +89,12 @@ public class ClaseDemo {
         System.out.println(csv.CitireStudenti());
         csv.CitesteDate();
 
+        Profesor profnou=new Profesor("profu","Nou");
+        csv.ScrieProf(profnou);
+
+        Curs cursnou=new Curs( "curs nou la mate","descrierewewkjfiehfiufh00");
+        csv.ScrieCurs(cursnou);
+
 
 
 

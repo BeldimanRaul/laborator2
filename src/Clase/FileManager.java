@@ -22,9 +22,10 @@ public class FileManager extends ManagerCursuri implements OperatiiManagerCursur
   }
 
   }
-public void CitesteDate(){
+    public void CitesteDate(){
       List<Student>studenti=CitireStudenti();
       List<Profesor>profesor=CitireProfesori();
+      List<Curs>cursuri=CitireCursuri();
 }
     public List<Student> CitireStudenti() {
         List<Student> students = new ArrayList<Student>();
@@ -69,6 +70,26 @@ public void CitesteDate(){
             throw new RuntimeException(e);
         }
     }
+    public List<Curs>CitireCursuri() {
+      List<Curs>cursuri=new ArrayList<>();
+      try{
+          File f = new File(cursPath);
+          BufferedReader br = new BufferedReader(new FileReader(f));
+          String linie=br.readLine();
+          if (linie != null) {
+              linie=linie.trim();
+              String[] splituri = linie.split(",");
+              Curs curs=new Curs(splituri[0],splituri[1]);
+              cursuri.add(curs);
+              linie= br.readLine();
+
+          }return cursuri;
+      } catch (FileNotFoundException e) {
+          throw new RuntimeException(e);
+      } catch (IOException e) {
+          throw new RuntimeException(e);
+      }
+    }
     public void ScrieStud(Student student) {
         try {
             File f = new File(studentiPath);
@@ -85,6 +106,46 @@ public void CitesteDate(){
             System.out.println(ex);
         }
     }
+    public void ScrieProf(Profesor prof)  {
+      try{
+          File f = new File(profesoriPath);
+          BufferedWriter bw=new BufferedWriter(new FileWriter(f,true));
+          try{
+              bw.write(prof.getNume()+","+prof.getPrenume()+ "\r\n");
+              bw.flush();
+          } catch (IOException e) {
+              System.out.println(e);
+          }finally {
+              bw.close();
+          }
+      }catch (Exception exceptie){
+          System.out.println(exceptie);
+      }
+}
+    public void ScrieCurs(Curs curs)  {
+        try{
+            File f = new File(cursPath);
+            BufferedWriter bw=new BufferedWriter(new FileWriter(f,true));
+            try{
+                bw.write(curs.getNumeCurs()+ "\r\n");
+                bw.flush();
+            } catch (IOException e) {
+                System.out.println(e);
+            }finally {
+                bw.close();
+            }
+        }catch (Exception exceptie){
+            System.out.println(exceptie);
+        }
+    }
+
+
+
+
+
+
+
+
     public List<Curs> PopuleazaCurs(List<Student> studenti, List<Profesor> profesori){
 
         List<Curs> cursuri = new ArrayList<Curs>();

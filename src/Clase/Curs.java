@@ -30,7 +30,6 @@ public class Curs implements OperatiiCurs {
           System.out.println("Studentul "+student+" nu a fost adaugat deloc");
       }
     }
-
     public void StergereStudenti(Student student) {
         if (StudentiSiNote.remove(student) != null) {
             System.out.println("Studentul " + student + " a fost eliminat din curs.");
@@ -48,17 +47,13 @@ public class Curs implements OperatiiCurs {
             System.out.println("Studentul " + student_decautat + " nu există în curs.");
         }
     }
-
-
     public void AddProfesor(Profesor profesor) {
         profu.add(profesor);
 
     }
-
     public void StergereProfesor(Profesor profesor) {
        profu.remove(profesor);
     }
-
     public void ModificaProfesor(Profesor profesor_c, Profesor prof_nou) {
        profu.remove(profesor_c);
        profu.add(prof_nou);
