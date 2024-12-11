@@ -1,1 +1,1 @@
-profu,Nou
+Profesor,Nou

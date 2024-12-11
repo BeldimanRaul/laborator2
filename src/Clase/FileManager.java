@@ -3,6 +3,7 @@ package Clase;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class FileManager extends ManagerCursuri implements OperatiiManagerCursuri{
 
@@ -10,6 +11,7 @@ public class FileManager extends ManagerCursuri implements OperatiiManagerCursur
   String studentiPath="studenti.txt";
   String profesoriPath="profesori.txt";
   String outPath="output.txt";
+
 
   public FileManager() {
 
@@ -27,7 +29,7 @@ public class FileManager extends ManagerCursuri implements OperatiiManagerCursur
       List<Profesor>profesor=CitireProfesori();
       List<Curs>cursuri=CitireCursuri();
 }
-    public List<Student> CitireStudenti() {
+    public List<Student> CitireStudenti()  {
         List<Student> students = new ArrayList<Student>();
         try {
 
